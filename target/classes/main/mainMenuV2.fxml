@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#chooseImage" text="Open...." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefHeight="639.0" prefWidth="1000.0">
+         <children>
+            <VBox prefHeight="583.0" prefWidth="256.0" spacing="10.0">
+               <children>
+                  <AnchorPane prefHeight="26.0" prefWidth="256.0">
+                     <children>
+                        <Label layoutX="21.0" layoutY="1.0" text="Details" textFill="#9f9f9f">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Separator prefWidth="200.0" />
+                  <HBox prefHeight="55.0" prefWidth="256.0">
+                     <children>
+                        <Pane prefHeight="100.0" prefWidth="23.0" />
+                        <VBox prefHeight="100.0" prefWidth="221.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="4.0" prefWidth="220.0" spacing="10.0">
+                                 <children>
+                                    <Label text="File name:" />
+                                    <Label fx:id="fileName" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefHeight="4.0" prefWidth="220.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Resolution:" />
+                                    <Label fx:id="resolution" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="256.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="1.0" text="Components" textFill="#9f9f9f">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Separator prefWidth="200.0" />
+                  <ListView fx:id="componentList" onMouseClicked="#editComponent" prefHeight="213.0" prefWidth="235.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </ListView>
+                  <Separator layoutX="10.0" layoutY="48.0" prefWidth="200.0" />
+                  <AnchorPane layoutX="10.0" layoutY="453.0" prefHeight="26.0" prefWidth="256.0">
+                     <children>
+                        <Label layoutX="20.0" layoutY="1.0" text="Component Groups" textFill="#9f9f9f">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Separator prefWidth="200.0" />
+                  <ListView fx:id="componentGroup" prefHeight="198.0" prefWidth="235.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </ListView>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label text="Number of Components: " />
+                        <Label fx:id="componentNumLabel" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <AnchorPane layoutX="10.0" layoutY="142.0" prefHeight="26.0" prefWidth="256.0">
+                     <children>
+                        <Label layoutX="20.0" layoutY="1.0" text="Settings" textFill="#9f9f9f">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Separator prefWidth="200.0" />
+                  <VBox prefHeight="198.0" prefWidth="256.0" spacing="2.0">
+                     <children>
+                        <Label text="Noise Control" />
+                        <Slider fx:id="noiseControl" onMouseReleased="#updateNoise" value="20.0" />
+                        <CheckBox fx:id="randomColors" mnemonicParsing="false" onAction="#updateNoise" text="Random Colours" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+            <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="542.0" prefWidth="744.0" vmax="0.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="327.0">
+                     <children>
+                        <ImageView fx:id="originalImage" fitHeight="300.0" fitWidth="300.0" layoutX="14.0" layoutY="14.0" onContextMenuRequested="#contextMenu" onMouseClicked="#chooseComponent" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="blackAndWhite" fitHeight="300.0" fitWidth="300.0" layoutX="322.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="borderImage" fitHeight="300.0" fitWidth="300.0" layoutX="14.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" />
+                        <AnchorPane fx:id="anchorPane" layoutX="14.0" layoutY="324.0" prefHeight="300.0" prefWidth="300.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+      <ToolBar prefHeight="36.0" prefWidth="1000.0" />
+   </children>
+</VBox>

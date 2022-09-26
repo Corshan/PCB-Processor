@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TitledPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <VBox spacing="20.0">
+         <children>
+            <TextField prefHeight="26.0" prefWidth="274.0" promptText="Name of Component" />
+            <HBox prefHeight="11.0" prefWidth="210.0">
+               <children>
+                  <HBox prefHeight="18.0" prefWidth="40.0">
+                     <children>
+                        <Label text="R:" />
+                        <Label fx:id="RLabel" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="59.0" prefWidth="40.0">
+                     <children>
+                        <Label text="G:" />
+                        <Label fx:id="GValue" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="70.0" layoutY="10.0" prefHeight="59.0" prefWidth="40.0">
+                     <children>
+                        <Label text="B:" />
+                        <Label fx:id="BValue" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</TitledPane>
